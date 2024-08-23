@@ -9,8 +9,7 @@ import (
 // const asciiTexture = " .;coPO?$@"
 const asciiTexture = " .`^\",:;Il!i<>~+_-.?][}{1)(|/tfjrxnucvzxYUJCLQ0OZmwqpkdbhao*#MW&8%B@$"
 
-func ImageToAsciiShader(img image.Image, width, height int) []byte {
-	img = RescaleImage(img, width, height)
+func ImageToAsciiShader(img image.Image) []byte {
 	bounds := img.Bounds()
 	ascii := make([]byte, 0, bounds.Dx()*bounds.Dy())
 	for y := 0; y < bounds.Dy(); y++ {
@@ -22,8 +21,7 @@ func ImageToAsciiShader(img image.Image, width, height int) []byte {
 	return ascii
 }
 
-func ImageToAnsiShader(img image.Image, width, height int) []byte {
-	img = RescaleImage(img, width, height)
+func ImageToAnsiShader(img image.Image) []byte {
 	bounds := img.Bounds()
 	ascii := make([]byte, 0, bounds.Dx()*bounds.Dy())
 	for y := 0; y < bounds.Dy(); y++ {
